@@ -10,6 +10,8 @@ import ContactCard from "./components/ContactCard";
 import AddAndUpdateContact from "./components/AddAndUpdateContact";
 import useDisclouse from "./hooks/useDisclouse";
 import NotFoundContact from "./components/NotFoundContact";
+import './index.css';
+
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
@@ -63,38 +65,41 @@ const App = () => {
   };
 
   return (
-    <>
-      <div className="mx-auto max-w-[370px] px-4 md:max-w-[600px] lg:max-w-[800px] xl:max-w-[1000px]">
-        <Navbar />
-        <div className="flex gap-2">
-          <div className="relative flex flex-grow items-center">
-            <FiSearch className="absolute ml-1 text-3xl text-white" />
-            <input
-              onChange={filterContacts}
-              type="text"
-              className=" h-10 flex-grow rounded-md border border-white bg-transparent pl-9 text-white"
-            />
-            <AiFillPlusCircle
-            onClick={onOpen}
-            className="cursor-pointer text-5xl text-white"
-          />
-          </div>
+    <div className="bg-red-500 text-white p-4 text-center">
+  Nếu nền này màu đỏ, Tailwind đã hoạt động!
+</div>
 
-          
-        </div>
-        <div className="mt-4 flex flex-col gap-3">
-          {contacts.length <= 0 ? (
-            <NotFoundContact />
-          ) : (
-            contacts.map((contact) => (
-              <ContactCard key={contact.id} contact={contact} />
-            ))
-          )}
-        </div>
-      </div>
-      <ToastContainer position="bottom-center" />
-      <AddAndUpdateContact onClose={onClose} isOpen={isOpen} />
-    </>
+  //   <><div className="mx-auto max-w-2xl px-6 py-8 bg-gray-100 rounded-lg shadow-md">
+  //   <Navbar />
+  //   <div className="flex gap-3 mb-6">
+  //     <div className="relative flex flex-grow items-center">
+  //       <FiSearch className="absolute left-3 text-xl text-gray-500" />
+  //       <input
+  //         onChange={filterContacts}
+  //         type="text"
+  //         placeholder="Tìm kiếm liên hệ..."
+  //         className="h-12 w-full rounded-lg border border-gray-300 bg-white pl-10 text-gray-700 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+  //       />
+  //       <AiFillPlusCircle
+  //       onClick={onOpen}
+  //       className="cursor-pointer text-5xl text-blue-500 hover:text-blue-700 transition duration-300"
+  //     />
+  //     </div>
+  //   </div>
+  
+  //   <div className="mt-4 flex flex-col gap-4">
+  //     {contacts.length <= 0 ? (
+  //       <NotFoundContact />
+  //     ) : (
+  //       contacts.map((contact) => (
+  //         <ContactCard key={contact.id} contact={contact} />
+  //       ))
+  //     )}
+  //   </div>
+  // </div>
+  // <ToastContainer position="bottom-center" />
+  // <AddAndUpdateContact onClose={onClose} isOpen={isOpen} />  
+  //   </>
   );
 };
 
